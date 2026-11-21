@@ -1,0 +1,98 @@
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #FDF8EE;
+  color: #4A3B32;
+}
+
+/* 篩選按鈕切換樣式 */
+.filter-btn.active {
+  background-color: #F4B860;
+  color: #4A3B32;
+  border-color: #D9822B;
+  font-weight: 700;
+}
+
+/* 六角斜肩日式御守外框裁切 */
+.omamori-hex-shape {
+  clip-path: polygon(22% 0%, 78% 0%, 100% 18%, 100% 100%, 0% 100%, 0% 18%);
+}
+
+/* 抽到御守時的開心晃動特效 */
+@keyframes shakeOmamori {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-7deg) scale(1.05); }
+  40% { transform: rotate(7deg) scale(1.05); }
+  60% { transform: rotate(-4deg) scale(1.02); }
+  80% { transform: rotate(4deg) scale(1.02); }
+}
+.animate-shake {
+  animation: shakeOmamori 0.6s ease-in-out;
+}
+
+/* 小貓緩緩走出來求籤動畫（水平移動 + 身體起伏 + 腳步擺動） */
+@keyframes catWalkToCylinder {
+  0%   { left: 10px; transform: translateY(0px); }
+  15%  { left: 45px; transform: translateY(-5px); }
+  30%  { left: 80px; transform: translateY(0px); }
+  45%  { left: 115px; transform: translateY(-5px); }
+  60%  { left: 150px; transform: translateY(0px); }
+  75%  { left: 185px; transform: translateY(-5px); }
+  90%  { left: 210px; transform: translateY(0px); }
+  100% { left: 215px; transform: translateY(0px); }
+}
+@keyframes legStep {
+  0%, 100% { transform: translateX(-3px); }
+  50% { transform: translateX(4px); }
+}
+.animate-shrine-walk {
+  animation: catWalkToCylinder 1.6s linear forwards;
+}
+.animate-shrine-walk .shrine-leg-front {
+  animation: legStep 0.35s ease-in-out infinite;
+}
+.animate-shrine-walk .shrine-leg-back {
+  animation: legStep 0.35s ease-in-out infinite reverse;
+}
+
+/* 廟宇紅漆籤筒搖晃動畫 */
+@keyframes cylinderShake {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-14deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(8deg); }
+}
+.animate-cylinder-shake {
+  transform-origin: bottom center;
+  animation: cylinderShake 0.45s ease-in-out 3;
+}
+
+/* 靈籤從籤筒中跳出來 */
+@keyframes stickPopOut {
+  0%   { opacity: 0; transform: translateY(25px); }
+  30%  { opacity: 1; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(-22px); }
+}
+.animate-stick-pop {
+  animation: stickPopOut 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* 抽獎結果彈窗出現動畫 */
+@keyframes popModalIn {
+  0% { opacity: 0; transform: scale(0.75) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+.animate-modal-pop {
+  animation: popModalIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* 貓咪圖片融入背景（白底自動透明、黑底貓咪圓角化） */
+.cat-sticker-blend {
+  mix-blend-mode: multiply;
+}
+.cat1-circle-blend {
+  border-radius: 9999px;
+  border: 3px solid #FFFDF9;
+  box-shadow: 0 3px 10px rgba(74, 59, 50, 0.15);
+  background-color: #222222;
+}

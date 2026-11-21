@@ -1,0 +1,76 @@
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: #FDF8EE;
+  color: #4A3B32;
+}
+
+.filter-btn {
+  background-color: #FFFDF9;
+  color: #4A3B32;
+  transition: all 0.2s ease;
+}
+.filter-btn:hover { background-color: #F7EAD8; }
+.filter-btn.active {
+  background-color: #F4B860;
+  border-color: #F4B860;
+  color: #4A3B32;
+}
+
+/* 日式傳統六角斜肩御守外型 */
+.omamori-hex-shape {
+  clip-path: polygon(22% 0%, 78% 0%, 100% 24%, 100% 94%, 93% 100%, 7% 100%, 0% 94%, 0% 24%);
+}
+
+@keyframes omamoriShake {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  20% { transform: rotate(-8deg) scale(1.05); }
+  40% { transform: rotate(8deg) scale(1.05); }
+  60% { transform: rotate(-6deg) scale(1.03); }
+  80% { transform: rotate(6deg) scale(1.03); }
+}
+.animate-shake { animation: omamoriShake 0.6s ease-in-out; }
+
+/* 小貓緩緩走向廟宇籤筒 */
+@keyframes shrineCatWalk {
+  0% { opacity: 0; transform: translateX(-20px) translateY(0px); }
+  15% { opacity: 1; transform: translateX(15px) translateY(-5px); }
+  30% { transform: translateX(45px) translateY(0px); }
+  45% { transform: translateX(75px) translateY(-5px); }
+  60% { transform: translateX(105px) translateY(0px); }
+  75% { transform: translateX(130px) translateY(-5px); }
+  100% { opacity: 1; transform: translateX(148px) translateY(0px); }
+}
+.animate-shrine-walk { animation: shrineCatWalk 1.6s ease-out forwards; }
+
+@keyframes legSwingFront {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(5px) translateY(-2px); }
+}
+@keyframes legSwingBack {
+  0%, 100% { transform: translateX(0px); }
+  50% { transform: translateX(-5px) translateY(-2px); }
+}
+.animate-shrine-walk .shrine-leg-front { animation: legSwingFront 0.35s ease-in-out 4; }
+.animate-shrine-walk .shrine-leg-back { animation: legSwingBack 0.35s ease-in-out 4; }
+
+/* 籤筒搖晃 */
+@keyframes cylinderShake {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-12deg); }
+  40% { transform: rotate(12deg); }
+  60% { transform: rotate(-10deg); }
+  80% { transform: rotate(10deg); }
+}
+.animate-cylinder-shake {
+  transform-origin: bottom center;
+  animation: cylinderShake 0.55s ease-in-out 2;
+}
+
+/* 靈籤向上彈出 */
+@keyframes stickPopUp {
+  0% { opacity: 0; transform: translateY(22px); }
+  40% { opacity: 1; transform: translateY(-14px); }
+  70% { opacity: 1; transform: translateY(-8px); }
+  100% { opacity: 1; transform: translateY(-12px); }
+}
+.animate-stick-pop { animation: stickPopUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.45s forwards; }
